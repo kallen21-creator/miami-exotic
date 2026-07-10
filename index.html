@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Exotic Rentals - Wypożyczalnia Samochodów Sportowych w Miami</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'apex-dark': '#1a1d21',
+                        'apex-gold': '#dca83d',
+                        'apex-red': '#cc3a32',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-apex-dark text-white font-sans overflow-x-hidden">
+
+    <!-- Header / Nawigacja -->
+    <header class="p-6 bg-apex-dark border-b border-gray-800">
+        <nav class="container mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <i class="fas fa-car-side text-apex-gold text-3xl"></i>
+                <h1 class="text-3xl font-bold text-white">Apex Exotic</h1>
+            </div>
+            <div class="flex items-center gap-6 text-gray-300">
+                <a href="#flota" class="hover:text-apex-gold transition">Flota</a>
+                <a href="#kontakt" class="hover:text-apex-gold transition">Kontakt</a>
+                <a href="#kontakt" class="bg-apex-gold text-apex-dark font-semibold px-6 py-2 rounded-full hover:bg-white transition">Rezerwuj</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Sekcja Hero z zaawansowanym Panelem Rezerwacji -->
+    <section class="container mx-auto text-center pt-24 pb-12 px-6">
+        <h2 class="text-6xl font-bold text-white leading-tight mb-4">Luksus i moc.<br>Miami czeka na Ciebie.</h2>
+        <p class="text-xl text-gray-400 mb-6 max-w-2xl mx-auto">Odkryj naszą flotę najdroższych i najszybszych samochodów świata.</p>
+        
+        <!-- Zalety w stylu Discover Cars -->
+        <div class="flex flex-wrap justify-center gap-6 text-sm text-gray-300 mb-12">
+            <div><i class="fas fa-check text-apex-gold mr-2"></i>Jasne ceny, bez niespodzianek</div>
+            <div><i class="fas fa-check text-apex-gold mr-2"></i>Wsparcie 24/7</div>
+            <div><i class="fas fa-check text-apex-gold mr-2"></i>Bezpłatne anulowanie rezerwacji</div>
+        </div>
+
+        <!-- ZAALANSOWANY PANEL REZERWACJI (zintegrowany w Twoim stylu) -->
+        <div data-aos="fade-up" class="max-w-4xl mx-auto bg-gray-950 border border-gray-800 p-6 rounded-3xl shadow-2xl text-left">
+            <div class="bg-apex-gold text-apex-dark font-bold px-4 py-2 rounded-t-xl text-xs inline-block mb-4">
+                <i class="fas fa-plane-arrival mr-2"></i> ODBIÓR NA LOTNISKU LUB W HOTELU
+            </div>
+            
+            <form class="space-y-4" onsubmit="event.preventDefault(); alert('Wyszukiwanie samochodów na wybrane terminy...');">
+                <!-- Miejsce odbioru -->
+                <div>
+                    <label class="block text-xs font-semibold text-gray-400 uppercase mb-1">Miejsce odbioru</label>
+                    <div class="relative">
+                        <i class="fas fa-map-marker-alt absolute left-4 top-4 text-gray-500"></i>
+                        <input type="text" placeholder="Wpisz lotnisko Miami (MIA) lub hotel..." class="w-full pl-12 pr-4 py-3.5 bg-gray-900 border border-gray-700 rounded-xl text-white focus:outline-none focus:border-apex-gold">
+                    </div>
+                </div>
+
+                <!-- Daty i Godziny -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-400 uppercase mb-1">Data odbioru</label>
+                        <input type="date" class="w-full p-3 bg-gray-900 border border-gray-700 rounded-xl text-white focus:outline-none focus:border-apex-gold text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-400 uppercase mb-1">Godzina</label>
+                        <input type="time" value="12:00" class="w-full p-3 bg-gray-900 border border-gray-700 rounded-xl text-white focus:outline-none focus:border-apex-gold text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-400 uppercase mb-1">Data zwrotu</label>
+                        <input type="date" class="w-full p-3 bg-gray-900 border border-gray-700 rounded-xl text-white focus:outline-none focus:border-apex-gold text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-400 uppercase mb-1">Godzina</label>
+                        <input type="time" value="12:00" class="w-full p-3 bg-gray-900 border border-gray-700 rounded-xl text-white focus:outline-none focus:border-apex-gold text-sm">
+                    </div>
+                </div>
+
+                <!-- Dolny pasek: Wiek i Przycisk -->
+                <div class="flex flex-col md:flex-row items-center justify-between gap-4 pt-4 border-t border-gray-900">
+                    <div class="flex items-center gap-2 text-sm text-gray-400">
+                        <input type="checkbox" id="age" checked class="accent-apex-gold rounded">
+                        <label encoding="age">Wiek kierowcy: 25-65 lat (wymagany dla aut egzotycznych)</label>
+                    </div>
+                    <button type="submit" class="w-full md:w-auto bg-apex-gold text-apex-dark font-bold px-12 py-4 rounded-xl hover:bg-white transition shadow-lg shadow-apex-gold/10">
+                        Szukaj dostępnych aut
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Zaufane marki / Partnerzy -->
+    <section class="container mx-auto py-8 px-6 text-center border-b border-gray-900">
+        <p class="text-xs text-gray-500 uppercase tracking-widest mb-6">Partnerzy naszej floty w Miami</p>
+        <div class="flex flex-wrap justify-center items-center gap-12 text-gray-600 text-xl font-bold">
+            <div class="hover:text-gray-400 transition cursor-default"><i class="fab fa-font-awesome-flag mr-2"></i>HERTZ EXOTIC</div>
+            <div class="hover:text-gray-400 transition cursor-default"><i class="fas fa-gem mr-2"></i>APEX CLUB</div>
+            <div class="hover:text-gray-400 transition cursor-default"><i class="fas fa-crown mr-2"></i>VIP MIAMI</div>
+            <div class="hover:text-gray-400 transition cursor-default"><i class="fas fa-star mr-2"></i>TRUSTPILOT 4.9</div>
+        </div>
+    </section>
+
+    <!-- Sekcja Flota -->
+    <section id="flota" class="container mx-auto py-20 px-6">
+        <h2 class="text-3xl font-bold mb-12 text-center">Nasza Flota Superaut</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+            <!-- Auto 1: Lamborghini Huracán EVO -->
+            <div data-aos="fade-up" class="group bg-gray-900 border border-gray-800 rounded-3xl overflow-hidden shadow-2xl transition duration-300 hover:border-apex-gold hover:-translate-y-2">
+                <div class="relative h-64 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1566473965997-3de9c817e938?auto=format&fit=crop&w=600&q=80" alt="Lamborghini Huracán EVO" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <span class="absolute top-4 right-4 bg-apex-gold text-apex-dark font-semibold px-4 py-1.5 rounded-full text-xs">BESTSELLER</span>
+                </div>
+                <div class="p-8">
+                    <div class="flex items-center gap-2 text-apex-gold text-sm mb-1">
+                        <i class="fas fa-bolt"></i>
+                        <span>Lamborghini</span>
+                    </div>
+                    <h3 class="text-3xl font-bold text-white mb-2">Huracán EVO</h3>
+                    <p class="text-gray-400 text-sm mb-6">640 KM | 0-100 km/h w 2.9s | V10</p>
+                    <div class="flex items-center justify-between gap-4">
+                        <p class="text-sm text-gray-400">od <span class="text-3xl font-bold text-white">$1,299</span>/dzień</p>
+                        <a href="#kontakt" class="bg-apex-gold text-apex-dark font-semibold px-6 py-3 rounded-full hover:bg-white transition text-sm">Rezerwuj teraz</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Auto 2: Ferrari F8 Tributo -->
+            <div data-aos="fade-up" data-aos-delay="200" class="group bg-gray-900 border border-gray-800 rounded-3xl overflow-hidden shadow-2xl transition duration-300 hover:border-apex-red hover:-translate-y-2">
+                <div class="relative h-64 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1592198084033-aade902d1aae?auto=format&fit=crop&w=600&q=80" alt="Ferrari F8 Tributo" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <span class="absolute top-4 right-4 bg-apex-red text-white font-semibold px-4 py-1.5 rounded-full text-xs">NOWOŚĆ</span>
+                </div>
+                <div class="p-8">
+                    <div class="flex items-center gap-2 text-apex-red text-sm mb-1">
+                        <i class="fas fa-flag-checkered"></i>
+                        <span>Ferrari</span>
+                    </div>
+                    <h3 class="text-3xl font-bold text-white mb-2">F8 Tributo</h3>
+                    <p class="text-gray-400 text-sm mb-6">720 KM | 0-100 km/h w 2.9s | V8 Twin-Turbo</p>
+                    <div class="flex items-center justify-between gap-4">
+                        <p class="text-sm text-gray-400">od <span class="text-3xl font-bold text-white">$1,499</span>/dzień</p>
+                        <a href="#kontakt" class="bg-apex-red text-white font-semibold px-6 py-3 rounded-full hover:bg-white transition hover:text-apex-red text-sm">Rezerwuj teraz</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Auto 3: Porsche 911 Turbo S -->
+            <div data-aos="fade-up" data-aos-delay="400" class="group bg-gray-900 border border-gray-800 rounded-3xl overflow-hidden shadow-2xl transition duration-300 hover:border-apex-gold hover:-translate-y-2">
+                <div class="relative h-64 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=600&q=80" alt="Porsche 911 Turbo S" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                </div>
+                <div class="p-8">
+                    <div class="flex items-center gap-2 text-apex-gold text-sm mb-1">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Porsche</span>
+                    </div>
+                    <h3 class="text-3xl font-bold text-white mb-2">911 Turbo S</h3>
+                    <p class="text-gray-400 text-sm mb-6">650 KM | 0-100 km/h w 2.7s | Flat-6</p>
+                    <div class="flex items-center justify-between gap-4">
+                        <p class="text-sm text-gray-400">od <span class="text-3xl font-bold text-white">$999</span>/dzień</p>
+                        <a href="#kontakt" class="bg-apex-gold text-apex-dark font-semibold px-6 py-3 rounded-full hover:bg-white transition text-sm">Rezerwuj teraz</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Sekcja Kontakt -->
+    <section id="kontakt" data-aos="fade-up" class="container mx-auto py-20 px-6">
+        <div class="flex flex-col md:flex-row items-center gap-12 bg-gray-900 border border-gray-800 p-12 rounded-3xl">
+            <div class="w-full md:w-1/2">
+                <p class="text-sm text-apex-gold font-semibold mb-1">KONTAKT</p>
+                <h2 class="text-5xl font-bold text-white leading-tight mb-4">Gotowy na<br>przygodę?</h2>
+                <p class="text-lg text-gray-400">Skontaktuj się z nami, aby zarezerwować wymarzone auto. Nasz zespół jest dostępny 24/7, aby spełnić Twoje oczekiwania.</p>
+            </div>
+            <div class="w-full md:w-1/2 bg-gray-800 p-10 rounded-2xl">
+                <h3 class="text-2xl font-bold text-white mb-6">Wyślij zapytanie</h3>
+                <form class="space-y-4" onsubmit="event.preventDefault(); alert('Wiadomość wysłana!');">
+                    <div>
+                        <label for="name" class="block text-sm text-gray-400 mb-1">Imię i nazwisko</label>
+                        <input type="text" id="name" required placeholder="Jan Kowalski" class="w-full p-4 bg-gray-900 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-apex-gold">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm text-gray-400 mb-1">E-mail</label>
+                        <input type="email" id="email" required placeholder="jan@example.com" class="w-full p-4 bg-gray-900 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-apex-gold">
+                    </div>
+                    <button type="submit" class="bg-apex-gold text-apex-dark font-semibold w-full text-center py-4 rounded-full hover:bg-white transition">Wyślij zapytanie</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="p-6 bg-apex-dark border-t border-gray-800 text-center text-gray-600 text-sm">
+        &copy; 2026 Miami Exotic Apex. Wszelkie prawa zastrzeżone.
+    </footer>
+
+    <!-- Skrypt inicjalizujący animacje AOS po załadowaniu strony -->
+    <script>
+        window.addEventListener('load', function() {
+            AOS.init({
+                duration: 1000,
+                once: true,
+                offset: 100
+            });
+        });
+    </script>
+
+</body>
+</html>
