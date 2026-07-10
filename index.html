@@ -209,16 +209,39 @@
         &copy; 2026 Miami Exotic Apex. Wszelkie prawa zastrzeżone.
     </footer>
 
-    <!-- Skrypt inicjalizujący animacje AOS po załadowaniu strony -->
+    <!-- Skrypty: AOS oraz obsługa wysyłki rezerwacji do EmailJS -->
     <script>
-        window.addEventListener('load', function() {
-            AOS.init({
-                duration: 1000,
-                once: true,
-                offset: 100
-            });
-        });
-    </script>
+      // Inicjalizacja animacji wjazdu kart na stronie
+      window.addEventListener('load', function() {
+          AOS.init({
+              duration: 1000,
+              once: true,
+              offset: 100
+          });
+      });
+
+      // Obsługa wysyłki formularza bezpośrednio na Twój e-mail
+      document.getElementById('reservation-form').addEventListener('submit', function(event) {
+          event.preventDefault(); // Powstrzymuje przeładowanie strony
+
+          const btn = this.querySelector('button[type="submit"]');
+          btn.innerText = 'Wysyłanie...';
+          btn.disabled = true;
+
+          // PAMIĘTAJ: Wklej poniżej swój Template ID z EmailJS zamiast 'TUTAJ_WKLEJ_TWÓJ_TEMPLATE_ID'
+          emailjs.sendForm('service_354pz2z', 'TUTAJ_WKLEJ_TWÓJ_TEMPLATE_ID', this)
+              .then(function() {
+                  alert('Dziękujemy! Zapytanie o rezerwację zostało wysłane. Skontaktujemy się z Tobą.');
+                  document.getElementById('reservation-form').reset();
+                  btn.innerText = 'Szukaj dostępnych aut';
+                  btn.disabled = false;
+              }, function(error) {
+                  alert('Coś poszło nie tak... Błąd: ' + JSON.stringify(error));
+                  btn.innerText = 'Spróbuj ponownie';
+                  btn.disabled = false;
+              });
+      });
+  </script>
 
 </body>
 </html>
